@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modelo de Aprovação de Crédito</title>
+</head>
+<body>
+    <h1>Modelo de Aprovação de Crédito</h1>
+    <p>Acurácia do modelo: {{ accuracy }}</p>
+    <pre>{{ classification_report }}</pre>
+
+    <h2>Previsões Individuais</h2>
+    <ul>
+        {% for client_prediction in client_predictions %}
+            <li class="{% if 'Pode receber crédito' in client_prediction %}client-credit{% else %}client-no-credit{% endif %}">
+                {{ client_prediction }}
+            </li>
+        {% endfor %}
+    </ul>
+    
+</body>
+</html>
